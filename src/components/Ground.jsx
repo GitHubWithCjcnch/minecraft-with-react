@@ -1,5 +1,5 @@
 import { usePlane } from "@react-three/cannon";
-import { groundTexture } from "../assets/textures";
+import { groundTexture } from "../assets/textures/textures";
 import { useStore } from "../hooks/useStore";
 
 export const Ground = () => {

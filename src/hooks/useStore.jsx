@@ -43,4 +43,7 @@ export const useStore = create((set) => ({
 			cubes: []
 		}))
 	},
+  howPlay: () => {
+    document.querySelector('.help-container').classList.remove('display-none');
+  }
 }));
