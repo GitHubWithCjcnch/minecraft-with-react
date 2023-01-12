@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useStore } from "../hooks/useStore";
 import { useKeyboard } from "../hooks/useKeyboard";
 import { dirtImg, grassImg, glassImg, logImg, woodImg } from "../assets/textures/images";
@@ -12,7 +12,6 @@ const images = {
 };
 
 export const TextureSelector = () => {
-  const [visible, setVisible] = useState(false);
   const [activeTexture, setTexture] = useStore((state) => [
     state.texture,
     state.setTexture,
@@ -33,30 +32,20 @@ export const TextureSelector = () => {
     }
   }, [setTexture, dirt, grass, glass, wood, log]);
 
-  useEffect(() => {
-    const visibilityTimeout = setTimeout(() => {
-      setVisible(false);
-    }, 2000);
-    setVisible(true);
-    return () => {
-      clearTimeout(visibilityTimeout);
-    };
-  }, [activeTexture]);
-
   return (
-    visible && (
-      <div className="absolute-centered texture-selector">
+    <div className="texture-selector-container">
+      <div className="texture-selector">
         {Object.entries(images).map(([k, src]) => {
           return (
             <img
               key={k}
               src={src}
               alt={k}
-              className={`${k === activeTexture ? "active" : ""}`}
+              className={`texture-image ${k === activeTexture ? "active" : ""}`}
             />
           );
         })}
       </div>
-    )
+    </div>
   );
 };

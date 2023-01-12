@@ -29,7 +29,7 @@ export const useStore = create((set) => ({
     }));
   },
   setTexture: (texture) => {
-    set((prev) => ({
+    set(() => ({
       texture
     }))
   },

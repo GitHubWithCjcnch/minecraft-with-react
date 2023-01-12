@@ -54,12 +54,33 @@ span {
   background-image: url(./assets/cursor.svg);
 }
 
+.texture-selector-container {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  margin-bottom: 25px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .texture-selector {
-  transform: scale(5)
+  padding: 15px 15px;
+  display: flex;
+  background-color: rgba(50, 50, 50, 0.7);
+}
+
+.texture-selector > img {
+  border: 10px double rgb(117, 117, 117);
 }
 
 .texture-selector img.active {
-  border: 2px solid red;
+  transform: scale(1.1);
+  border: 10px double rgb(200, 200, 200);
+}
+
+.texture-image {
+  width: 45px;
 }
 
 .menu {
